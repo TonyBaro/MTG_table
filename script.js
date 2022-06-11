@@ -11,12 +11,6 @@ function drawhealth(){
     document.getElementById("P4L").innerHTML=`${health[3]}`
 }
 
-function drawToken(){
-    TokenBoard1 = document.getElementById('tboard1').innerHTML
-    TokenBoard2 = document.getElementById('tboard2').innerHTML
-    TokenBoard3 = document.getElementById('tboard3').innerHTML
-    TokenBoard4 = document.getElementById('tboard4').innerHTML
-}
 
 function addToken(x){
     document.getElementById(`tboard${x}`).innerHTML = document.getElementById(`tboard${x}`).innerHTML + 
@@ -25,7 +19,6 @@ function addToken(x){
         <p>1/1</p>
     </div>`
 
-    drawToken()
 }
 
 
