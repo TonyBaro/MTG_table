@@ -13,10 +13,14 @@ function drawhealth(){
 
 
 function addToken(x){
+    var color = document.getElementById(`tokenColor${x}`).value
+    var power = document.getElementById(`tokenPower${x}`).value
+    var defense = document.getElementById(`tokenDefense${x}`).value
     document.getElementById(`tboard${x}`).innerHTML = document.getElementById(`tboard${x}`).innerHTML + 
-    `<div class="token" onmousedown="remove(this)">
+    `<div class="token" onmousedown="tap(this)" style="background-color:${color}">
         <p>Token</p>
-        <p>1/1</p>
+        <p>${power}/${defense}</p>
+        <button onmousedown="remove(this)">Remove</button>
     </div>`
 
 }
@@ -25,8 +29,26 @@ function addToken(x){
 
 drawhealth()
 
+function tap(element){
+    console.log(element.outerHTML)
+    var innerdiv = element.innerHTML
+    var color = element.style.backgroundColor
+    element.outerHTML = `<div class="token" onmousedown="untap(this)" style="background-color:${color}; transform:rotate(90deg)">
+    ${innerdiv}
+</div>`
+}
+
+function untap(element){
+    console.log(element.outerHTML)
+    var innerdiv = element.innerHTML
+    var color = element.style.backgroundColor
+    element.outerHTML = `<div class="token" onmousedown="tap(this)" style="background-color:${color}">
+    ${innerdiv}
+</div>`
+}
+
 function remove(element){
-    element.remove(this)
+    element.parentElement.remove(this)
     drawToken()
     drawhealth()
 }
