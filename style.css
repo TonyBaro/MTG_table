@@ -85,7 +85,7 @@
 
 .bottom{
     flex: 1;
-    height: 100xpx;
+    height: 100px;
     /* background-color: hotpink; */
     display: flex;
     align-items: center;
