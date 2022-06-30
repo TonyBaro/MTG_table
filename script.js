@@ -49,9 +49,9 @@ function untap(element){
 
 function remove(element){
     element.parentElement.remove(this)
-    drawToken()
     drawhealth()
 }
+// remove has known error where as it is a part of the parent div during the remove function you also activate the tap or untap function. Since you remove the element before element.outerhtml is modified it reads an error. the error is only on console log and causes no issue in actual use as stated before the parent element needs to be removed when this function activates
 
 function heal(x){
     health[x] ++
@@ -62,5 +62,3 @@ function hurt(x){
     health[x] --
     drawhealth()
 }
-
-console.log(document.getElementById('tboard3').innerHTML)
